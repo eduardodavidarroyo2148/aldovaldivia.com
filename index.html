@@ -826,7 +826,7 @@
           <div class="flex items-center justify-between p-3.5 rounded-xl bg-navy-800 border border-gold-400/25">
             <div class="flex items-center gap-2.5 overflow-hidden">
               <i data-lucide="mail-check" class="w-5 h-5 text-gold-400 shrink-0"></i>
-              <span class="text-sm font-mono font-bold text-white select-all">avaldivia@gesyscoschool.com</span>
+              <span class="text-sm font-mono font-bold text-white select-all">direccion@gesyscoschool.com</span>
             </div>
             <button onclick="copyEmail()" class="px-3 py-1.5 rounded-lg bg-gold-400 text-navy-900 text-xs font-bold hover:bg-gold-300 transition-colors flex items-center gap-1 shrink-0">
               <i data-lucide="copy" class="w-3 h-3"></i> Copiar
@@ -1046,12 +1046,12 @@
     }
 
     function copyEmail() {
-      copyText('avaldivia@gesyscoschool.com');
+      copyText('direccion@gesyscoschool.com / informes@gesyscoschool.com');
       toast('Correo copiado.');
     }
 
     function copyDraft() {
-      copyText('Solicitud de Comunicación Ejecutiva\nDestinatario: avaldivia@gesyscoschool.com\nServicio: Mentoría / Asesoría / Veeduría\nEstado: Conforme con Contrato Marco.');
+      copyText('Solicitud de Comunicación Ejecutiva\nDestinatario: direccion@gesyscoschool.com / informes@gesyscoschool.com\nServicio: Mentoría / Asesoría / Veeduría\nEstado: Conforme con Contrato Marco.');
       toast('Borrador copiado.');
     }
 
@@ -1091,7 +1091,7 @@
       );
 
       toast('Abriendo correo...', 'success');
-      window.location.href = 'mailto:avaldivia@gesyscoschool.com?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:direccion@gesyscoschool.com,informes@gesyscoschool.com?subject=' + subject + '&body=' + body;
     }
 
     function toggleMenu() {
