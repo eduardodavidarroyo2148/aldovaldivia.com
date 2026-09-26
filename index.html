@@ -113,7 +113,7 @@
     }
 
     @media print {
-      header, footer, .no-print, #photoModal, #contractModal, #toastBox { display: none !important; }
+      header, footer, .no-print, #contractModal, #toastBox { display: none !important; }
       body { background: #fff !important; color: #000 !important; }
       .glass, .glass-strong { background: #fff !important; border-color: #ccc !important; color: #000 !important; }
     }
@@ -246,19 +246,12 @@
             <div class="relative rounded-3xl overflow-hidden glass glow-gold border-2 border-gold-400/30 p-2">
               <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-navy-800">
                 <img
-                  id="profileImage"
-                  src="https://img.youtube.com/vi/WxdvEPsHJyM/maxresdefault.jpg"
+                  src="FOTO_ALDOVALDIVIA.jpeg"
                   alt="Aldo Danilo Valdivia Loayza"
                   class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   loading="eager"
-                  onerror="this.onerror=null; this.src='https://placehold.co/480x600/0C1325/D4AF37?text=Aldo+Valdivia';"
                 >
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-
-                <button onclick="openPhotoModal()" title="Cambiar foto" class="absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-gold-400/60 text-white text-[11px] font-semibold hover:bg-gold-400 hover:text-black transition-all duration-300 no-print">
-                  <i data-lucide="camera" class="w-3 h-3"></i>
-                  <span>Cambiar</span>
-                </button>
 
                 <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1.5">
                   <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gold-400/90 text-navy-900 font-bold text-[10px] uppercase tracking-wider">
@@ -932,9 +925,6 @@
         <button onclick="openContractModal()" class="hover:text-gold-400 transition-colors underline flex items-center gap-1">
           <i data-lucide="scroll-text" class="w-3 h-3"></i> Contrato & Pol&#xED;ticas
         </button>
-        <button onclick="openPhotoModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1">
-          <i data-lucide="image" class="w-3 h-3"></i> Foto
-        </button>
       </div>
     </div>
   </footer>
@@ -995,51 +985,6 @@
   </div>
 
 
-  <!-- ========== PHOTO MODAL ========== -->
-  <div id="photoModal" class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden no-print" role="dialog" aria-modal="true">
-    <div class="relative w-full max-w-lg rounded-2xl glass border border-gold-400/30 p-7 space-y-5 shadow-2xl bg-navy-800">
-
-      <button onclick="closePhotoModal()" class="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
-
-      <div class="space-y-2">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/10 text-gold-400 text-xs font-semibold"><i data-lucide="camera" class="w-3.5 h-3.5"></i> Gestor de Fotograf&#xED;a</div>
-        <h3 class="text-xl font-bold text-white">Actualizar Foto de Perfil</h3>
-        <p class="text-xs text-slate-300">Sube una imagen o pega un enlace URL.</p>
-      </div>
-
-      <div class="flex items-center gap-4 p-3 rounded-xl bg-navy-900/80 border border-slate-700">
-        <img id="modalPreview" src="https://img.youtube.com/vi/WxdvEPsHJyM/maxresdefault.jpg" class="w-16 h-20 rounded-lg object-cover border border-gold-400/30" alt="Preview">
-        <div class="text-xs space-y-1">
-          <p class="text-white font-medium">Vista Previa</p>
-          <p class="text-slate-400" id="photoStatus">Foto predeterminada.</p>
-        </div>
-      </div>
-
-      <div class="space-y-2">
-        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300">Subir archivo</label>
-        <input type="file" id="fileInput" accept="image/*" onchange="handleFileUpload(event)" class="hidden">
-        <label for="fileInput" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-gold-400/40 bg-gold-400/5 hover:bg-gold-400/10 text-gold-400 cursor-pointer transition-colors text-xs font-medium">
-          <i data-lucide="upload-cloud" class="w-4 h-4"></i> Seleccionar imagen (JPG, PNG, WebP)
-        </label>
-      </div>
-
-      <div class="relative flex items-center justify-center"><div class="border-t border-slate-700 w-full"></div><span class="bg-navy-800 px-3 text-[10px] uppercase tracking-widest text-slate-500 font-bold absolute">O por URL</span></div>
-
-      <div class="flex gap-2">
-        <input type="url" id="photoUrl" placeholder="https://ejemplo.com/foto.jpg" class="flex-1 px-4 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-gold-400">
-        <button onclick="applyUrl()" class="px-4 py-2.5 rounded-xl bg-gold-400 text-navy-900 font-bold text-xs hover:bg-gold-300 transition-colors">Aplicar</button>
-      </div>
-
-      <div class="flex flex-wrap gap-2 pt-1">
-        <button onclick="setPreset('https://img.youtube.com/vi/WxdvEPsHJyM/maxresdefault.jpg')" class="px-3 py-1 rounded-lg bg-slate-700 text-[11px] text-slate-300 hover:text-white hover:bg-slate-600 transition-colors">YouTube</button>
-        <button onclick="resetPhoto()" class="px-3 py-1 rounded-lg bg-slate-700 text-[11px] text-gold-400 hover:bg-slate-600 transition-colors">Restablecer</button>
-      </div>
-
-      <div class="flex justify-end pt-2 border-t border-slate-700">
-        <button onclick="closePhotoModal()" class="px-5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-700 hover:bg-slate-600 transition-colors">Cerrar</button>
-      </div>
-    </div>
-  </div>
 
 
   <!-- ========== TOAST ========== -->
@@ -1054,12 +999,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
-      loadPhoto();
       initReveal();
     });
-
-    const DEFAULT_PHOTO = 'https://img.youtube.com/vi/WxdvEPsHJyM/maxresdefault.jpg';
-    const PHOTO_KEY = 'aldo_valdivia_photo_v3';
 
     function initReveal() {
       const els = document.querySelectorAll('.reveal');
@@ -1074,22 +1015,6 @@
       setTimeout(() => { els.forEach(el => el.classList.add('visible')); }, 3000);
     }
 
-    function loadPhoto() {
-      try {
-        const p = localStorage.getItem(PHOTO_KEY);
-        if (p) { setPhotos(p); const s = document.getElementById('photoStatus'); if (s) s.textContent = 'Foto personalizada.'; }
-      } catch(e) {}
-    }
-
-    function setPhotos(src) {
-      const a = document.getElementById('profileImage');
-      const b = document.getElementById('modalPreview');
-      if (a) a.src = src;
-      if (b) b.src = src;
-    }
-
-    function openPhotoModal() { document.getElementById('photoModal')?.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
-    function closePhotoModal() { document.getElementById('photoModal')?.classList.add('hidden'); }
     function openContractModal() { document.getElementById('contractModal')?.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
     function closeContractModal() { document.getElementById('contractModal')?.classList.add('hidden'); }
 
@@ -1099,40 +1024,6 @@
       closeContractModal();
       toast('Contrato aceptado.', 'success');
     }
-
-    function handleFileUpload(e) {
-      const f = e.target.files?.[0];
-      if (!f) return;
-      if (!f.type.startsWith('image/')) { toast('Selecciona una imagen v&#xE1;lida.', 'error'); return; }
-      if (f.size > 5*1024*1024) { toast('Imagen mayor a 5MB.', 'error'); return; }
-      const r = new FileReader();
-      r.onload = ev => {
-        setPhotos(ev.target.result);
-        try { localStorage.setItem(PHOTO_KEY, ev.target.result); } catch(e) {}
-        toast('Foto actualizada.', 'success');
-        document.getElementById('photoStatus').textContent = 'Foto cargada.';
-        setTimeout(closePhotoModal, 1000);
-      };
-      r.readAsDataURL(f);
-    }
-
-    function applyUrl() {
-      const url = document.getElementById('photoUrl')?.value.trim();
-      if (!url) { toast('Ingresa una URL.', 'error'); return; }
-      const img = new Image();
-      img.onload = () => {
-        setPhotos(url);
-        try { localStorage.setItem(PHOTO_KEY, url); } catch(e) {}
-        toast('Foto actualizada.', 'success');
-        document.getElementById('photoUrl').value = '';
-        setTimeout(closePhotoModal, 1000);
-      };
-      img.onerror = () => toast('No se pudo cargar esa URL.', 'error');
-      img.src = url;
-    }
-
-    function setPreset(url) { setPhotos(url); try { localStorage.setItem(PHOTO_KEY, url); } catch(e) {} toast('Preajuste aplicado.', 'success'); setTimeout(closePhotoModal, 800); }
-    function resetPhoto() { setPhotos(DEFAULT_PHOTO); try { localStorage.removeItem(PHOTO_KEY); } catch(e) {} toast('Foto restablecida.', 'success'); setTimeout(closePhotoModal, 800); }
 
     let toastTimer;
     function toast(msg, type = 'success') {
